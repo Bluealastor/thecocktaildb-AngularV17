@@ -1,0 +1,4 @@
+.description-expanded {
+    max-height: none; /* Modifica l'altezza per far espandere la descrizione */
+    overflow: visible; /* Per mostrare l'intera descrizione */
+  }
