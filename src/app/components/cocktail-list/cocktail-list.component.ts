@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { CocktailApiService } from '../../service/cocktail-api.service';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-cocktail-list',
@@ -13,33 +14,31 @@ import { HttpClient } from '@angular/common/http';
 
 export class CocktailListComponent implements OnInit {
   cocktails: any[] = [];
-  isExpanded = false;
-  descriptionLength: number = 200; // Lunghezza massima desiderata
+  descriptionLength: number = 200;
+  public searchData: string = 'Gin';
 
-  constructor(private http: HttpClient) { }
+  constructor(private cocktailApiService: CocktailApiService, private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.fetchData();
-  }
-  toggleDescription() {
-    this.isExpanded = !this.isExpanded;
+    this.dataService.getSearchData().subscribe((searchQuery: string) => {
+      // Aggiorna i dati ogni volta che il valore in DataService cambia
+      this.getCocktails(searchQuery);
+    });
   }
 
-  fetchData() {
-    const searchQuery = 'margarita';
-    const apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`;
-
-    this.http.get<any>(apiUrl)
-      .subscribe(
-        (data: any) => {
-          this.cocktails = data.drinks || []; // Assicurati che l'API restituisca drinks come array
-          console.log(data)
-        },
-        (error) => {
-          console.error('Errore nella richiesta:', error);
-        }
-      );
+  getCocktails(searchQuery: string): void {
+    this.cocktailApiService.getCocktails(searchQuery).subscribe(
+      (data: any) => {
+        this.cocktails = data.drinks || [];
+        console.log(this.cocktails); // Usa i dati come necessario all'interno del componente
+      },
+      (error) => {
+        console.error('Errore nella richiesta:', error);
+      }
+    );
   }
+
+
 
 
 

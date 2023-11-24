@@ -1,5 +1,5 @@
-<div *ngIf="cocktails && cocktails.length" class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-  <div class="col mb-4" *ngFor="let cocktail of cocktails">
+<div *ngIf="cocktails && cocktails.length" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 cards-wraps" style="max-width: 100%;">
+  <div class="col mb-4 cards"  *ngFor="let cocktail of cocktails">
     <div class="card mx-2 my-2" style="max-width: 250px;">
       <img [src]="cocktail.strDrinkThumb" class="card-img-top img-fluid" [alt]="cocktail.strDrink">
       <div class="card-body">

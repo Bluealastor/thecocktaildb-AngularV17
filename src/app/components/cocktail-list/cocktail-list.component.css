@@ -1,4 +1,8 @@
-.description-expanded {
-    max-height: none; /* Modifica l'altezza per far espandere la descrizione */
-    overflow: visible; /* Per mostrare l'intera descrizione */
-  }
+.cards-wraps{
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.cards {
+  padding: 0;
+}
