@@ -6,3 +6,27 @@
 .cards {
   padding: 0;
 }
+
+/* styles.css (o nel file CSS del componente) */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* sfondo semitrasparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  display: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.show {
+  display: flex;
+}

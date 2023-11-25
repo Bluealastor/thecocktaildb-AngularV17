@@ -1,0 +1,19 @@
+<div class="card mx-2 my-2" style="max-width: 250px;">
+    <img [src]="cocktail.strDrinkThumb" class="card-img-top img-fluid" [alt]="cocktail.strDrink">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{ cocktail.strDrink }}</h5>
+      <div class="card-text text-truncate">{{ cocktail.strInstructions }}</div>
+      <button (click)="togglePopup()">Detail</button>
+      <div class="popup" *ngIf="showPopup" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="popup-wrapper" *ngIf="showPopup">
+            <div class="backdrop">
+            <div class="popup">
+              <div class="popup-content">
+                <h2>{{ cocktail.strDrink }}</h2>
+                <p>{{ cocktail.strInstructions }}</p>
+                <button (click)="togglePopup()">Chiudi</button>
+              </div>
+            </div></div>
+          </div>
+    </div>
+  </div>

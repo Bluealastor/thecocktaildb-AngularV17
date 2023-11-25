@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CocktailListComponent } from "./components/cocktail-list/cocktail-list.component";
 import { HeaderComponent } from './components/header/header.component';
+// import { DetailComponent } from "./components/detail/detail.component";
 
 @Component({
     selector: 'app-root',

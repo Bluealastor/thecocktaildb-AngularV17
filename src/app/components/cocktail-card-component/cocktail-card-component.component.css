@@ -1,0 +1,47 @@
+/* Aggiungi queste classi CSS al tuo foglio di stile */
+
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Assicura che il popup sia sopra il resto del contenuto */
+  }
+  
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo opaco */
+    z-index: -1; /* Posiziona dietro il popup */
+  }
+  
+  .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    max-height: 80em;
+    max-width: 30em;
+    box-shadow: 10px 5px 5px rgb(34, 255, 0);
+    border-radius: 10px;
+    border:2px solid green;
+     /*Aggiungi uno scroll verticale se necessario */
+    padding: 20px;
+    z-index: 1; /* Posiziona sopra lo sfondo */
+  }
+
+  .popup-content {
+    /* Altri stili */
+    white-space: nowrap; /* Impedisce il wrap del testo */
+    overflow: hidden; /* Nasconde il testo che supera la larghezza */
+    text-overflow: ellipsis; /* Aggiunge i punti di sospensione per il testo troncato */
+  }
+  
