@@ -1,0 +1,16 @@
+<p>detail-coktail works!</p>
+<div *ngIf="cocktailDetail.length > 0">
+    <img [src]="cocktailDetail[0].strDrinkThumb" [alt]="cocktailDetail[0].strDrink" height="300" width="300">
+    <h2>{{ cocktailDetail[0].strDrink}}</h2>
+    <h4>{{ cocktailDetail[0].strAlcoholic}}</h4>
+    <div>
+        <h4>ingredients</h4>
+        <ul>
+            <ng-container *ngFor="let data of combineIngredientsAndMeasures()">
+              <li>{{ data.ingredient }} {{ data.measure }}</li>
+            </ng-container>
+          </ul>
+    </div>
+
+    <p>{{cocktailDetail[0].strInstructionsIT}}</p>
+</div>

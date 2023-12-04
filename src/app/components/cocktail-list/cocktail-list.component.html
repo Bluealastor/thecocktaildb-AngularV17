@@ -1,5 +1,5 @@
-<div *ngIf="cocktails && cocktails.length" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 cards-wraps" style="max-width: 100%;">
-  <div class="col mb-4 cards" *ngFor="let cocktail of cocktails">
+<div *ngIf="cocktails && cocktails.length" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 cards-wraps">
+  <div class="col mb-4 d-flex justify-content-center" *ngFor="let cocktail of cocktails">
     <app-cocktail-card-component [cocktail]="cocktail"></app-cocktail-card-component>
   </div>
 </div>

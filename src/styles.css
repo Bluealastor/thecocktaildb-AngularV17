@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     background-color: gray;
+    background-image: url("./assets/wp3322425.jpg");
+    background-repeat: no-repeat;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment:fixed;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

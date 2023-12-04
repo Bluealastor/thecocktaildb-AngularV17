@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+
+import { RouterLink, RouterOutlet } from '@angular/router';
+
 import { CocktailListComponent } from "./components/cocktail-list/cocktail-list.component";
 import { HeaderComponent } from './components/header/header.component';
-// import { DetailComponent } from "./components/detail/detail.component";
+import { DetailCoktailComponent } from "./components/detail-coktail/detail-coktail.component";
+
+
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, CocktailListComponent, HeaderComponent]
+    imports: [CommonModule, RouterOutlet, RouterLink, CocktailListComponent, HeaderComponent, DetailCoktailComponent]
 })
 export class AppComponent {
   title = 'cocktails';

@@ -1,12 +1,23 @@
-<nav class="navbar sticky-top bg-dark">
+<!-- <nav class="navbar sticky-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand titles" href="#"  >Cocktaildb</a>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Cerca..." aria-label="Cerca" aria-describedby="button-addon2" (input)="onInputChange($event)">
-        <button class="btn btn-outline-success  " type="button" (click)="search()">Cerca</button>
-      </div>
+      
+
       
     </div>
 
-  </nav>
+  </nav> -->
+
+  <header class="">
+    <mat-toolbar class="justify-content-between navbar sticky-top bg-dark">
+        <h1 class="navbar-brand titles light" data-title="Cocktaildb"><a routerLink=''>Cocktaildb</a></h1>
+        <span class="example-spacer"></span>
+        <div class="input-group input-group-sm ml-auto" style="max-width: 300px;">
+            <input type="text" class="form-control" placeholder="Cerca..." aria-label="Cerca" aria-describedby="button-addon2" (input)="onInputChange($event)">
+            <button class="btn btn-outline-success" type="button" (click)="search()">Cerca</button>
+        </div>
+
+    </mat-toolbar>
+</header>
+
+
 

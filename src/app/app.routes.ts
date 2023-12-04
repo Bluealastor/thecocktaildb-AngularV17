@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-// import { DetailComponent } from './components/detail/detail.component';
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
-import { AppComponent } from './app.component';
+import { DetailCoktailComponent } from './components/detail-coktail/detail-coktail.component';
 
 export const routes: Routes = [
-    { path: '',component: AppComponent },
-    {path:"Cocktail", component:CocktailListComponent},
-    // { path: 'detail', component: DetailComponent}
+    {path: '', component: CocktailListComponent  },
+    {path: 'detail/:id', component: DetailCoktailComponent },
 ];
