@@ -17,7 +17,7 @@ import { CocktailCardComponentComponent } from "../cocktail-card-component/cockt
 export class CocktailListComponent implements OnInit {
   cocktails: any[] = [];
   descriptionLength: number = 200;
-  public searchData: string = 'Gin';
+  public searchData: string = '';
 
 
   constructor(private cocktailApiService: CocktailApiService, private dataService: DataService) { }

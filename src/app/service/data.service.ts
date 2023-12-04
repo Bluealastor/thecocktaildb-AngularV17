@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private searchData: BehaviorSubject<string> = new BehaviorSubject<string>('gin');
+  private searchData: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   setSearchData(data: string) {
     this.searchData.next(data);

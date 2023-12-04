@@ -1,15 +1,4 @@
-<!-- <div class="card mx-2 my-2" style="max-width: 250px;" [id]="cocktail.idDrink">
-    <img [src]="cocktail.strDrinkThumb" class="card-img-top img-fluid" [alt]="cocktail.strDrink">
-    <div class="card-body">
-      <h2 class="card-title text-center">{{ cocktail.strDrink }}</h2>
-      <div class="card-text text-truncate">{{ cocktail.strInstructionsIT }}</div>
-      <a [routerLink]="['/detail', cocktail.idDrink]" > More content</a>
-<button class="button-image" (click)="gestisciPreferito()" [style.backgroundImage]="'url(' + buttonImage + ')'" ></button>
-
-    </div>
-  </div> -->
-
-  <div class="card mx-6 my-2" style="" [id]="cocktail.idDrink">
+<div class="card mx-6 my-2" style="" [id]="cocktail.idDrink">
 
     <img
       class="card-background card-img-top img-fluid" [alt]="cocktail.strDrink"
@@ -25,7 +14,7 @@
           {{ cocktail.strInstructionsIT }}
         </p>
       </div>
-      <button class="button-image-prefe" (click)="gestisciPreferito()" [style.backgroundImage]="'url(' + buttonImage + ')'"></button>
       <button class="card-button"  [routerLink]="['/detail', cocktail.idDrink]">Read more</button>
+      <button class="button-image-prefe" (click)="gestisciPreferito()" [style.backgroundImage]="'url(' + buttonImage + ')'"></button>
     </div>
   </div>

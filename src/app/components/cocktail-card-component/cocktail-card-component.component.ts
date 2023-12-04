@@ -13,8 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class CocktailCardComponentComponent implements OnInit{
   @Input() cocktail: any;
   isCardFound: boolean = true; 
-  idVariabile: string = 'idDinamico'; // La tua variabile contenente l'ID dinamico
-  isFavorite: boolean = false; // Inizialmente, il cocktail non è un preferito
+  idVariabile: string = 'idDinamico';
+  isFavorite: boolean = false;
 
   // Controlla se l'ID corrente è tra quelli nel localStorage
   buttonImage: string = '../../../assets/heart.png'; // Immagine predefinita per il pulsante
@@ -34,8 +34,6 @@ export class CocktailCardComponentComponent implements OnInit{
       }
     }
   }
-
-  // Salva o rimuove l'ID corrente dal localStorage in base alla presenza o assenza
   gestisciPreferito(): void {
     const idsString = localStorage.getItem('storedIDs');
     let arrayDiIDs: string[] = idsString ? JSON.parse(idsString) : [];
