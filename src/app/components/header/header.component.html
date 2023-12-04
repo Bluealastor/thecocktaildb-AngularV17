@@ -9,11 +9,11 @@
 
   <header class="">
     <mat-toolbar class="justify-content-between navbar sticky-top bg-dark">
-        <h1 class="navbar-brand titles light" data-title="Cocktaildb"><a routerLink=''>Cocktaildb</a></h1>
+        <h1 class="navbar-brand titles light" data-title="Cocktaildb" routerLink='home'>Cocktaildb</h1>
         <span class="example-spacer"></span>
         <div class="input-group input-group-sm ml-auto" style="max-width: 300px;">
             <input type="text" class="form-control" placeholder="Cerca..." aria-label="Cerca" aria-describedby="button-addon2" (input)="onInputChange($event)">
-            <button class="btn btn-outline-success" type="button" (click)="search()">Cerca</button>
+            <button class="btn btn-outline-success" type="button" >Cerca</button>
         </div>
 
     </mat-toolbar>

@@ -1,16 +1,22 @@
-<p>detail-coktail works!</p>
-<div *ngIf="cocktailDetail.length > 0">
-    <img [src]="cocktailDetail[0].strDrinkThumb" [alt]="cocktailDetail[0].strDrink" height="300" width="300">
-    <h2>{{ cocktailDetail[0].strDrink}}</h2>
-    <h4>{{ cocktailDetail[0].strAlcoholic}}</h4>
-    <div>
-        <h4>ingredients</h4>
-        <ul>
-            <ng-container *ngFor="let data of combineIngredientsAndMeasures()">
-              <li>{{ data.ingredient }} {{ data.measure }}</li>
-            </ng-container>
+<div *ngIf="cocktailDetail.length > 0" class="row justify-content-center card-detail-container" >
+  <div class="card-detail">
+  <div class="col-md-3" style="height: 500px; width: 300px;align-self: flex-start; ">
+      <img [src]="cocktailDetail[0].strDrinkThumb" [alt]="cocktailDetail[0].strDrink">
+  </div>
+  <div class="col-md-9" style="margin-left:2em;">
+      <h2>{{ cocktailDetail[0].strDrink}}</h2>
+      <h4>{{ cocktailDetail[0].strAlcoholic}}</h4>
+      <div>
+          <h4>Ingredients</h4>
+          <ul>
+              <ng-container *ngFor="let data of combineIngredientsAndMeasures()">
+                  <li>{{ data.ingredient }} {{ data.measure }}</li>
+              </ng-container>
           </ul>
-    </div>
-
-    <p>{{cocktailDetail[0].strInstructionsIT}}</p>
+      </div>
+      <p>{{cocktailDetail[0].strInstructionsIT}}</p>
+  </div>
+  </div>
 </div>
+
+

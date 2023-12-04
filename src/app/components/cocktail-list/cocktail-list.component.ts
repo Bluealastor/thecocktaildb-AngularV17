@@ -32,7 +32,7 @@ export class CocktailListComponent implements OnInit {
   getCocktails(searchQuery: string): void {
     this.cocktailApiService.getCocktails(searchQuery).subscribe(
       (data: any) => {
-        console.log("data",data)
+        // console.log("data",data)
         this.cocktails = data.drinks || [];
       },
       (error) => {

@@ -57,9 +57,9 @@ export class CocktailCardComponentComponent implements OnInit{
   }
   ngOnInit(): void {
   // console.log(this.cocktail)
-  console.log(localStorage.getItem('storedIDs'))
+  // console.log(localStorage.getItem('storedIDs'))
   this.verificaIDLocalStorage();
-  console.log("cocktail", this.cocktail)
+  // console.log("cocktail", this.cocktail)
     
   }
 }
