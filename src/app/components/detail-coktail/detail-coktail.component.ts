@@ -29,6 +29,7 @@ export class DetailCoktailComponent implements OnInit {
     // console.log("id", this.cocktailId)
     // console.log("idString", this.cocktailId.toString())
     this.getCoktailsDetail(this.cocktailId.toString())
+
   }
 
 
@@ -37,7 +38,7 @@ export class DetailCoktailComponent implements OnInit {
   getCoktailsDetail(idQuery: string): void {
     this.cocktailApiService?.getIdCocktails(idQuery).subscribe((data: any) => {
       // console.log(data)
-      // console.log(data.drinks[0])
+      console.log(data.drinks[0])
 
       if (Array.isArray(data.drinks)) {
         this.cocktailDetail = data.drinks;

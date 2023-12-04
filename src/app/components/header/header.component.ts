@@ -23,7 +23,7 @@ export class HeaderComponent {
     this.dataService.setSearchData(this.searchQuery);
   }
 
-  search() {
-    console.log('Testo cercato:', this.searchQuery);
-  }
+  // search() {
+  //   console.log('Testo cercato:', this.searchQuery);
+  // }
 }
