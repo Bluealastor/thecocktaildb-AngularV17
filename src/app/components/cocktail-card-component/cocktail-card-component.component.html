@@ -1,27 +1,11 @@
-<!-- <div class="card mx-6 my-2" [id]="cocktail.idDrink">
-
-  <img class="card-background card-img-top img-fluid" [alt]="cocktail.strDrink" [src]="cocktail.strDrinkThumb" width="1920" height="2193" />
-  <div class="card-content | flow">
-    <div class="card-content--container | flow">
-      <h2 class="card-title">{{ cocktail.strDrink }}</h2>
-      <p class="card-description" >
-        {{ cocktail.strInstructionsIT }}
-      </p>
-    </div>
-    <button class="card-button" [routerLink]="['/detail', cocktail.idDrink]">Read more</button>
-    <button class="button-image-prefe" (click)="gestisciPreferito()"[style.backgroundImage]="'url(' + buttonImage + ')'"></button>
-  </div>
-</div> -->
-
-
-<mat-card class="example-card" style="width:25em; height: 40em; margin-top: 1em; background-color: rgba(0, 0, 0, 0.588); border-radius: 20px;" >
+<mat-card class="example-card borderers">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"> <button class="button-image-prefe" (click)="gestisciPreferito()"[style.backgroundImage]="'url(' + buttonImage + ')'"></button> </div>
     <mat-card-title style="color:greenyellow">{{ cocktail.strDrink }}</mat-card-title>
     <mat-card-subtitle style="color:greenyellow">{{cocktail.strAlcoholic}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image [alt]="cocktail.strDrink" [src]="cocktail.strDrinkThumb" width="100%">
-  <mat-card-content style="margin-top: 1em">
+  <mat-card-content style="margin-top: 1em" >
     <p>
       {{ responsiveText(cocktail.strInstructionsIT) }}.
     </p>
@@ -30,3 +14,4 @@
     <button class="card-button" [routerLink]="['/detail', cocktail.idDrink]">Read more</button>
   </mat-card-actions>
 </mat-card>
+
