@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
+import { AnimationService } from '../../service/animation.service';
 
 @Component({
   selector: 'app-cocktail-card-component',
@@ -22,6 +24,18 @@ export class CocktailCardComponentComponent implements OnInit{
 
   // Controlla se l'ID corrente è tra quelli nel localStorage
   buttonImage: string = '../../../assets/heart.png'; // Immagine predefinita per il pulsante
+
+  constructor(private animationService: AnimationService) { }
+
+  ngOnInit(): void {
+    // console.log(this.cocktail)
+    // console.log(localStorage.getItem('storedIDs'))
+    this.verificaIDLocalStorage();
+    // console.log("cocktail", this.cocktail)
+    this.animationService.startAnimationByClass('borderers');
+    }
+
+
 
   // Controlla se l'ID corrente è tra quelli nel localStorage
   verificaIDLocalStorage(): void {
@@ -66,11 +80,5 @@ export class CocktailCardComponentComponent implements OnInit{
 
 
 
-  ngOnInit(): void {
-  // console.log(this.cocktail)
-  // console.log(localStorage.getItem('storedIDs'))
-  this.verificaIDLocalStorage();
-  // console.log("cocktail", this.cocktail)
-    
-  }
+
 }

@@ -35,7 +35,7 @@ p {
   margin-top: 1em;
   background-color: rgba(0, 0, 0, 0.588);
   border-radius: 20px ;
-  border: 2px solid greenyellow;
+  /* border: 2px solid greenyellow; */
 }
 
 .borderers {
@@ -47,14 +47,34 @@ p {
   height: 40em;
   margin-top: 1em;
   margin: auto;
-  border-radius: 80% 70% 70% 80%/80% 80% 70% 70%;
-  box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
-  animation: morphing 10s infinite;
   overflow: hidden;
+  box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+  transition: border-radius 1s ease-in-out; /* Aggiungi una transizione */
 }
-.borderers:hover {
-  animation-play-state: paused;
+
+.start-animation {
+  animation: morphing 10s infinite;
 }
+
+@keyframes morphing {
+  0% {
+    border-radius: 0%; /* Inizia con un border-radius di 0% */
+    box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+  }
+  25% {
+    border-radius: 58% 90% 75% 80%/76% 46% 54%70%;
+  }
+  50% {
+    border-radius: 50% 50% 80% 67%/55% 27% 73% 45%;
+    box-shadow: -10px -5px 50px rgba(0,0,0,0.2);
+  }
+  75% {
+    border-radius: 80% 67% 58% 90%/63% 68% 32% 37%;
+  }
+}
+
+
+/* 
 
 @-moz-keyframes morphing {
   0% {
@@ -104,23 +124,7 @@ p {
     border-radius: 80% 67% 58% 90%/63% 68% 32% 37%;
   }
 }
-@keyframes morphing {
-  0% {
-    border-radius: 80% 70% 70% 80%/80% 80% 70% 70%;
-    box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
-  }
-  25% {
-    border-radius: 58% 90% 75% 80%/76% 46% 54%70%;
-  }
-  50% {
-    border-radius: 50% 50% 80% 67%/55% 27% 73% 45%;
-    box-shadow: -10px -5px 50px rgba(0,0,0,0.2);
-  }
-  75% {
-    border-radius: 80% 67% 58% 90%/63% 68% 32% 37%;
-  }
-}
 
-
+ */
 
 /*Begin shimmer code*/
