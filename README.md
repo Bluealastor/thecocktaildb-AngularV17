@@ -23,3 +23,5 @@ Lenguage
 deploy
 
 <a href="https://vercel.com/" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"></a>
+
+<h2>PS: if after a few seconds you notice something moving, it's better to stop drinking and don't drive</h2>
