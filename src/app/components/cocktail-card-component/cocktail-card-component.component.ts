@@ -15,15 +15,18 @@ import { AnimationService } from '../../service/animation.service';
   styleUrl: './cocktail-card-component.component.css'
 })
 export class CocktailCardComponentComponent implements OnInit{
+  // INSERIMENTO DEI DATI PER LA FUNZIONE FAVORITO
   @Input() cocktail: any;
-  isCardFound: boolean = true; 
-  idVariabile: string = 'idDinamico';
   isFavorite: boolean = false;
+  
+  // SERVE PER RENDERE IL TESTO RESPONSIVE 
   textResponsive: string = "";
   lenghtText: number= 100;
 
   // Controlla se l'ID corrente è tra quelli nel localStorage
   buttonImage: string = '../../../assets/heart.png'; // Immagine predefinita per il pulsante
+
+
 
   constructor(private animationService: AnimationService) { }
 
@@ -36,39 +39,74 @@ export class CocktailCardComponentComponent implements OnInit{
     }
 
 
-
   // Controlla se l'ID corrente è tra quelli nel localStorage
   verificaIDLocalStorage(): void {
-    const idsString = localStorage.getItem('storedIDs');
-    if (idsString) {
-      const arrayDiIDs: string[] = JSON.parse(idsString);
-      this.isFavorite = arrayDiIDs.includes(this.cocktail.idDrink);
+    const idsString = localStorage.getItem('Preferite');
+  let arrayDiIDs: { id: string; img: string }[][] = idsString ? JSON.parse(idsString) : [];
+  const cocktailID = this.cocktail.idDrink;
 
-      // Cambia l'immagine in base allo stato di 'isFavorite'
-      if (this.isFavorite) {
-        this.buttonImage = '../../../assets/heartred.png'; // Percorso immagine per il preferito
-      } else {
-        this.buttonImage = '../../../assets/heart.png'; // Percorso immagine per il non-preferito
-      }
+  let isFavorite = false;
+
+  for (const element of arrayDiIDs) {
+    const existingIndex = element.findIndex(item => item.id === cocktailID);
+    if (existingIndex !== -1) {
+      isFavorite = true;
+      break;
     }
   }
-  gestisciPreferito(): void {
-    const idsString = localStorage.getItem('storedIDs');
-    let arrayDiIDs: string[] = idsString ? JSON.parse(idsString) : [];
-    if (this.isFavorite) {
-      arrayDiIDs = arrayDiIDs.filter(id => id !== this.cocktail.idDrink);
+
+  // Imposta lo stato isFavorite in base alla presenza dell'ID del cocktail
+  this.isFavorite = isFavorite;
+  if (this.isFavorite) {
+    this.buttonImage = '../../../assets/heartred.png'; // Percorso immagine per il preferito
+  } else {
+    this.buttonImage = '../../../assets/heart.png'; // Percorso immagine per il non-preferito
+  }
+}
+  
+  
+gestisciPreferito(): void {
+    const getIdAndImg = localStorage.getItem('Preferite');
+    let idAndImgData: { id: string; img: string }[][] = getIdAndImg ? JSON.parse(getIdAndImg) : [];
+    const cocktailData = {
+      id: this.cocktail.idDrink,
+      img: this.cocktail.strDrinkThumb,
+    };
+  
+    let elementIndexExisting = -1;
+  
+    // Cerca un array contenente l'elemento attuale
+    idAndImgData.forEach((element, index) => {
+      const existingIndex = element.findIndex(item => item.id === cocktailData.id);
+      if (existingIndex !== -1) {
+        elementIndexExisting = index;
+      }
+    });
+  
+ 
+    if (elementIndexExisting !== -1) {
+      const existingElementIndex = idAndImgData[elementIndexExisting].findIndex(item => item.id === cocktailData.id);
+      if (existingElementIndex !== -1) {
+        idAndImgData[elementIndexExisting].splice(existingElementIndex, 1);
+        if (idAndImgData[elementIndexExisting].length === 0) {
+          idAndImgData.splice(elementIndexExisting, 1);
+        }
+      }
     } else {
-      arrayDiIDs.push(this.cocktail.idDrink);
+      idAndImgData.push([cocktailData]);
     }
-    localStorage.setItem('storedIDs', JSON.stringify(arrayDiIDs));
+  
+    localStorage.setItem('Preferite', JSON.stringify(idAndImgData));
+  
+    // Aggiorna lo stato 'isFavorite' e cambia l'immagine del pulsante
     this.isFavorite = !this.isFavorite;
-    // Cambia l'immagine del pulsante dopo aver aggiornato 'isFavorite'
     if (this.isFavorite) {
       this.buttonImage = '../../../assets/heartred.png';
     } else {
       this.buttonImage = '../../../assets/heart.png';
     }
   }
+  
 
   responsiveText(text: string): string{
     if (text.length > this.lenghtText){
