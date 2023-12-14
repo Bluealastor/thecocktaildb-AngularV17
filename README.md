@@ -1,6 +1,9 @@
 # Cocktails
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+[Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+
+## API
+<a href="https://www.thecocktaildb.com/" target="_blank" rel="noreferrer"> $`\textcolor{orange}{\text{TheCockTailDB}}`$ </a>
 
 ## Development server
 <p>
