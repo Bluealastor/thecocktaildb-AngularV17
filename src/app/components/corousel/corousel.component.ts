@@ -1,8 +1,8 @@
-import { Component,  ElementRef,  OnInit, Renderer2} from '@angular/core';
+import { Component,  OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { BrowserModule } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
-declare var $: any;
 
 @Component({
     selector: 'app-corousel',
@@ -19,42 +19,28 @@ export class CorouselComponent implements OnInit{
   cocktailDataStorage: string | null = localStorage.getItem('Preferite');
   data: { ids: string[], images: string[] }[] = [];
 
-  activeIndex = 0; // Imposta l'indice attivo iniziale
-  imagesLoaded = false;
 
-
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
-
-  }
+  constructor(private router: Router,private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.cocktailLocal();
 
-    const carousel = this.elementRef.nativeElement.querySelector('#carousel-example');
-    carousel.addEventListener('slide.bs.carousel', (e: any) => {
-      const relatedTarget = e.relatedTarget;
-      const idx = Array.from(relatedTarget.parentElement.children).indexOf(relatedTarget);
-      const itemsPerSlide = 5;
-      const totalItems = carousel.querySelectorAll('.carousel-item').length;
-
-      if (idx >= totalItems - (itemsPerSlide - 1)) {
-        const it = itemsPerSlide - (totalItems - idx);
-        for (let i = 0; i < it; i++) {
-          // Append slides to end
-          if (e.direction === 'left') {
-            const carouselItems = carousel.querySelectorAll('.carousel-item');
-            this.renderer.appendChild(carousel.querySelector('.carousel-inner'), carouselItems[i]);
-          } else {
-            const firstCarouselItem = carousel.querySelector('.carousel-item');
-            this.renderer.appendChild(carousel.querySelector('.carousel-inner'), firstCarouselItem);
-          }
-        }
-      }
+    this.route.params.subscribe(params => {
+      const id = params['id'];
     });
+}
 
-  }
-
-
+navigateTo(route: string): void {
+  this.router.navigateByUrl(route);
+  // console.log("click")
+  // this.route.params.subscribe(params => {
+  //   const id = params['id'];
+  //   console.log("clickID",id)
+  // });
+  setTimeout(() => {
+    window.location.reload(); 
+  }, 500); 
+}
 
 // ************** GET DATA FROM LOCAL STORAGE
 cocktailLocal():void {
@@ -81,42 +67,6 @@ cocktailLocal():void {
     console.error('Errore nel parsing dei dati:', error);
   }
 }
-// **************
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ******************************CAROSELLO****************************************
-
-
-imageLoaded(): void {
-  // Controlla se tutte le immagini sono state caricate
-  const loadedImages = document.querySelectorAll('.carousel-item img');
-  this.imagesLoaded = loadedImages.length === this.data.length;
-}
-
-next(): void {
-  this.activeIndex = (this.activeIndex === this.data.length - 1) ? 0 : this.activeIndex + 1;
-}
-
-// Funzione per passare all'immagine precedente
-prev(): void {
-  this.activeIndex = (this.activeIndex === 0) ? this.data.length - 1 : this.activeIndex - 1;
-}
-
-// **************************************************************************************
-
-
-
 
 }
 
