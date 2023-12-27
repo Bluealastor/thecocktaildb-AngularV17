@@ -1,1 +1,12 @@
-<p>corousel works!</p>
+<div >
+  <h3>PREFERITI</h3>
+
+   <div class="carousel-wrap">
+    <div class="carousel-container">
+      <div class="carousel-slide" *ngFor="let item of data">
+        <img [src]="item.images" alt="Slide" width="100em">
+      </div>
+     
+    </div>
+  </div>
+</div>

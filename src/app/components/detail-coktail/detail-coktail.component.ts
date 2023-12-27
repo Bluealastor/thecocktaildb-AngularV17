@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { CocktailApiService } from '../../service/cocktail-api.service';
+import { CorouselComponent } from "../corousel/corousel.component";
 
 @Component({
-  selector: 'app-detail-coktail',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './detail-coktail.component.html',
-  styleUrl: './detail-coktail.component.css'
+    selector: 'app-detail-coktail',
+    standalone: true,
+    templateUrl: './detail-coktail.component.html',
+    styleUrl: './detail-coktail.component.css',
+    imports: [CommonModule, CorouselComponent]
 })
 export class DetailCoktailComponent implements OnInit {
   cocktailDetail: any[] = []

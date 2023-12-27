@@ -63,49 +63,42 @@ export class CocktailCardComponentComponent implements OnInit{
     this.buttonImage = '../../../assets/heart.png'; // Percorso immagine per il non-preferito
   }
 }
-  
-  
 gestisciPreferito(): void {
-    const getIdAndImg = localStorage.getItem('Preferite');
-    let idAndImgData: { id: string; img: string }[][] = getIdAndImg ? JSON.parse(getIdAndImg) : [];
-    const cocktailData = {
-      id: this.cocktail.idDrink,
-      img: this.cocktail.strDrinkThumb,
-    };
-  
-    let elementIndexExisting = -1;
-  
-    // Cerca un array contenente l'elemento attuale
-    idAndImgData.forEach((element, index) => {
-      const existingIndex = element.findIndex(item => item.id === cocktailData.id);
-      if (existingIndex !== -1) {
-        elementIndexExisting = index;
-      }
-    });
-  
- 
-    if (elementIndexExisting !== -1) {
-      const existingElementIndex = idAndImgData[elementIndexExisting].findIndex(item => item.id === cocktailData.id);
-      if (existingElementIndex !== -1) {
-        idAndImgData[elementIndexExisting].splice(existingElementIndex, 1);
-        if (idAndImgData[elementIndexExisting].length === 0) {
-          idAndImgData.splice(elementIndexExisting, 1);
-        }
-      }
-    } else {
-      idAndImgData.push([cocktailData]);
+  const getIdAndImg = localStorage.getItem('Preferite');
+  let idAndImgData: { id: string; img: string }[][] = getIdAndImg ? JSON.parse(getIdAndImg) : [];
+  const cocktailData = {
+    id: this.cocktail.idDrink,
+    img: this.cocktail.strDrinkThumb,
+  };
+
+  let existingIndex = -1;
+
+  // Cerca un array contenente l'elemento attuale
+  idAndImgData.forEach((element, index) => {
+    const foundIndex = element.findIndex(item => item.id === cocktailData.id);
+    if (foundIndex !== -1) {
+      existingIndex = index;
     }
-  
-    localStorage.setItem('Preferite', JSON.stringify(idAndImgData));
-  
-    // Aggiorna lo stato 'isFavorite' e cambia l'immagine del pulsante
-    this.isFavorite = !this.isFavorite;
-    if (this.isFavorite) {
-      this.buttonImage = '../../../assets/heartred.png';
-    } else {
-      this.buttonImage = '../../../assets/heart.png';
+  });
+
+  if (existingIndex !== -1) {
+    const existingElementIndex = idAndImgData[existingIndex].findIndex(item => item.id === cocktailData.id);
+    if (existingElementIndex !== -1) {
+      idAndImgData[existingIndex].splice(existingElementIndex, 1);
+      if (idAndImgData[existingIndex].length === 0) {
+        idAndImgData.splice(existingIndex, 1);
+      }
     }
+  } else {
+    idAndImgData.push([cocktailData]);
   }
+
+  localStorage.setItem('Preferite', JSON.stringify(idAndImgData));
+
+  // Aggiorna lo stato 'isFavorite' e cambia l'immagine del pulsante
+  this.isFavorite = !this.isFavorite;
+  this.buttonImage = this.isFavorite ? '../../../assets/heartred.png' : '../../../assets/heart.png';
+}
   
 
   responsiveText(text: string): string{
