@@ -10,12 +10,13 @@ import { CorouselComponent } from './components/corousel/corousel.component';
 
 
 
+
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, RouterLink, CocktailListComponent, HeaderComponent, DetailCoktailComponent,CorouselComponent]
+    imports: [CommonModule, RouterOutlet, RouterLink, CocktailListComponent, HeaderComponent, DetailCoktailComponent, CorouselComponent]
 })
 export class AppComponent {
   title = 'cocktails';

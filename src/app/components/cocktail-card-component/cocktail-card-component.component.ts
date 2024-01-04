@@ -7,12 +7,13 @@ import {MatCardModule} from '@angular/material/card';
 
 import { AnimationService } from '../../service/animation.service';
 
+
 @Component({
-  selector: 'app-cocktail-card-component',
-  standalone: true,
-  imports: [CommonModule, RouterModule,MatCardModule, MatButtonModule],
-  templateUrl: './cocktail-card-component.component.html',
-  styleUrl: './cocktail-card-component.component.css'
+    selector: 'app-cocktail-card-component',
+    standalone: true,
+    templateUrl: './cocktail-card-component.component.html',
+    styleUrl: './cocktail-card-component.component.css',
+    imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule, ]
 })
 export class CocktailCardComponentComponent implements OnInit{
   // INSERIMENTO DEI DATI PER LA FUNZIONE FAVORITO

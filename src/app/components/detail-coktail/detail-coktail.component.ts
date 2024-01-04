@@ -100,28 +100,5 @@ export class DetailCoktailComponent implements OnInit {
     return combinedData;
   }
 
-//  da capire perchè non mostra il video anche se prendo id
-  // extractYouTubeId(url: string): string | null {
-  //   if (url.includes('youtube.com') || url.includes('youtu.be')) {
-  //     const params = new URL(url).searchParams;
-  //     if (params.has('v')) {
-  //       return params.get('v') || null;
-  //     } else {
-  //       const urlParts = url.split('/');
-  //       const id = urlParts[urlParts.length - 1];
-  //       return id || null;
-  //     }
-  //   }
-  //   return null;
-  // }
-
-  // getVideoUrl(): string | null {
-  //   if (this.videoId) {
-  //     return `https://www.youtube.com/embed/${this.videoId}`;
-  //   }
-  //   return null;
-  // }
-
-
 }
 

@@ -24,4 +24,9 @@ import { Observable } from 'rxjs';6
       const apiUrl =  `${this.baseUrl + this.pointSearchIdUrl}${idQuery}` 
       return this.http.get<any>(apiUrl)
     }
+
+    getTopCocktail(): Observable<any>{
+      const apiUrl = `${this.baseUrl + "random.php"}`
+      return this.http.get<any>(apiUrl)
+    }
   }

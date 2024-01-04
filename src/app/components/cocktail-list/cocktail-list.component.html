@@ -1,3 +1,4 @@
+<app-hero></app-hero>
 <div *ngIf="cocktails && cocktails.length" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 cards-wraps">
   <div class="col mb-4 d-flex justify-content-center" *ngFor="let cocktail of cocktails">
     <app-cocktail-card-component [cocktail]="cocktail"></app-cocktail-card-component>

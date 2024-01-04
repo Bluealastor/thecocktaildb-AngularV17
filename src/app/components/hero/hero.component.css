@@ -1,0 +1,33 @@
+.wrapp-hero{
+    width: 100%;
+    height: 40em;
+    /* margin-left: 1em; */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.389);
+}
+
+h2{
+   color: rgba(132, 255, 0, 0.887);
+}
+
+.content-hero{
+    padding-top: 1em;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap
+}
+
+.hero-img{
+    width: 30vw;
+    height: 35em;
+    padding-left: 10em;
+}
+
+.info-hero{
+    width:50%;
+}
+
+.name-hero, .detail-hero{
+    color: rgba(132, 255, 0, 0.887);
+}
+

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CocktailApiService } from '../../service/cocktail-api.service';
 import { DataService } from '../../service/data.service';
 import { CocktailCardComponentComponent } from "../cocktail-card-component/cocktail-card-component.component";
+import { HeroComponent } from "../hero/hero.component";
 // import { DetailComponent } from "../detail/detail.component";
 
 @Component({
@@ -10,7 +11,7 @@ import { CocktailCardComponentComponent } from "../cocktail-card-component/cockt
     standalone: true,
     templateUrl: './cocktail-list.component.html',
     styleUrl: './cocktail-list.component.css',
-    imports: [CommonModule, CocktailCardComponentComponent]
+    imports: [CommonModule, CocktailCardComponentComponent, HeroComponent]
 })
 
 
@@ -34,6 +35,7 @@ export class CocktailListComponent implements OnInit {
       (data: any) => {
         // console.log("data",data)
         this.cocktails = data.drinks || [];
+        // console.log("list", data.drinks)
       },
       (error) => {
         console.error('Errore nella richiesta:', error);

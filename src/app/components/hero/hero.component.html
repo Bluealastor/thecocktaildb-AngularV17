@@ -1,0 +1,16 @@
+<div class="wrapp-hero" *ngFor="let cocktail of cocktails" [id]="cocktail.idDrink">
+    <h2> Cocktail del momento</h2>
+    <div class="content-hero"  (click)="navigateToDetail(cocktail.idDrink)">
+        <img class="hero-img" [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
+        <div class="info-hero">
+            
+            <div class="detail-hero">
+                <h3 class="name-hero">{{cocktail.strDrink}}</h3>
+                <p>{{cocktail.strAlcoholic}}</p>
+                <p>{{cocktail.strCategory}}</p>
+                <!-- <p>{{cocktail.}}</p>
+                <p>{{cocktail.}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
