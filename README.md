@@ -19,7 +19,7 @@ Frameworks & Library
 <a href="https://material.angular.io/" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white"></a>
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> 
 
-Lenguage
+Language
 
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"></a>
 
